@@ -38,6 +38,11 @@ public class Member extends BaseEntity {
     @Column(columnDefinition = "VARCHAR(10)")
     private Gender gender;
 
+    @Column(nullable = false, length = 50)
+    private String email;
+
+    private Integer point;
+
     @Enumerated(EnumType.STRING)
     private SocialType socialType;
 
@@ -47,10 +52,6 @@ public class Member extends BaseEntity {
 
     private LocalDate inactiveDate;
 
-    @Column(nullable = false, length = 50)
-    private String email;
-
-    private Integer point;
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
     private List<MemberAgree> memberAgreeList = new ArrayList<>();
