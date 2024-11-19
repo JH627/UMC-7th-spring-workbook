@@ -14,6 +14,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class CategoriesExistValidator implements ConstraintValidator<ExistCategories, List<Long>> {
 
+    // 리팩토링 필요
     private final FoodCategoryRepository foodCategoryRepository;
 
     @Override

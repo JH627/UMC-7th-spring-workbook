@@ -6,7 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 import umc.study.apiPayload.code.status.ErrorStatus;
 import umc.study.domain.Region;
 import umc.study.domain.Store;
-import umc.study.exception.region.RegionCategoryHandler;
+import umc.study.exception.region.RegionHandler;
 import umc.study.repository.RegionRepository.RegionRepository;
 import umc.study.repository.StoreRepository.StoreRepository;
 import umc.study.web.store.dto.StoreRequestDTO;
@@ -23,7 +23,7 @@ public class StoreCommandServiceImpl implements StoreCommandService {
     public Store create(StoreRequestDTO.CreateStoreDTO request) {
         Region region = regionRepository.findById(request.getRegionId())
                 .orElseThrow(() ->
-                        new RegionCategoryHandler(ErrorStatus.REGION_NOT_FOUND)
+                        new RegionHandler(ErrorStatus.REGION_NOT_FOUND)
                 );
 
         Store store = Store.builder()
