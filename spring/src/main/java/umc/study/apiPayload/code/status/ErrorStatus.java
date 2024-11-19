@@ -59,6 +59,18 @@ public enum ErrorStatus implements BaseErrorCode {
             HttpStatus.NOT_FOUND,
             "STORE404",
             "가게를 찾을 수 없습니다."
+    ),
+
+    MISSION_NOT_FOUND(
+            HttpStatus.NOT_FOUND,
+            "MISSION404",
+            "미션을 찾을 수 없습니다."
+    ),
+
+    MISSION_CHALLENGING(
+            HttpStatus.BAD_REQUEST,
+            "MISSION400",
+            "이미 진행중인 미션입니다."
     );
 
     private final HttpStatus httpStatus;
