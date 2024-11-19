@@ -2,6 +2,7 @@ package umc.study.service.ReviewService;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import umc.study.apiPayload.code.status.ErrorStatus;
 import umc.study.domain.Member;
 import umc.study.domain.Review;
@@ -22,6 +23,7 @@ public class ReviewCommandServiceImpl implements ReviewCommandService {
     private final MemberRepository memberRepository;
 
     @Override
+    @Transactional
     public Review create(ReviewRequestDTO.CreateReviewDTO request) {
         Store store = storeRepository.findById(request.getStoreId())
                 .orElseThrow(() ->
