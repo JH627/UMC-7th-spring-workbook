@@ -3,8 +3,8 @@ package umc.study.domain;
 import jakarta.persistence.*;
 import lombok.*;
 import umc.study.domain.common.BaseEntity;
-import umc.study.domain.enums.MissionStatus;
 import umc.study.domain.mapping.MemberMission;
+import umc.study.domain.mapping.MissionStatus;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import umc.study.domain.Mission;
 import umc.study.domain.QMission;
 import umc.study.domain.QStore;
-import umc.study.domain.enums.MissionStatus;
+import umc.study.domain.mapping.MissionStatus;
 
 import java.util.List;
 

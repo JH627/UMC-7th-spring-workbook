@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import umc.study.apiPayload.code.status.ErrorStatus;
 import umc.study.domain.Mission;
 import umc.study.domain.Store;
-import umc.study.domain.enums.MissionStatus;
+import umc.study.domain.mapping.MissionStatus;
 import umc.study.exception.store.StoreHandler;
 import umc.study.repository.MissionRepository.MissionRepository;
 import umc.study.repository.StoreRepository.StoreRepository;
