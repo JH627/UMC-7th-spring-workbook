@@ -60,4 +60,15 @@ public class MemberMissionController {
         Page<Mission> missionList = missionQueryService.getChallengingMissionsForMember(1L, page - 1);
         return ApiResponse.onSuccess(StoreConverter.missionPreViewListDTO(missionList));
     }
+
+    @PostMapping("/complete")
+    @Operation(summary = "진행 중인 미션 진행 완료로 바꾸기 API",description = "진행 중인 미션 진행 완료로 바꾸는 API입니다.")
+    @ApiResponses({
+            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "COMMON200",description = "OK, 성공"),
+    })
+    public ApiResponse<MemberMissionResponseDTO.MemberMissionPreviewDTO> completeMission(
+            @RequestBody @Valid MemberMissionRequestDTO.UpdateMemberMissionDTO request) {
+        MemberMission memberMission = memberMissionCommandService.completeMemberMission(request);
+        return ApiResponse.onSuccess(MemberMissionConverter.toMemberMissionPreviewDTO(memberMission));
+    }
 }

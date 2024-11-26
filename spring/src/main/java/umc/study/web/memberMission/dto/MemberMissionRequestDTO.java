@@ -12,4 +12,10 @@ public class MemberMissionRequestDTO {
         private Long missionId;
     }
 
+    @Getter
+    public static class UpdateMemberMissionDTO {
+        @NotNull
+        private Long missionId;
+    }
+
 }
