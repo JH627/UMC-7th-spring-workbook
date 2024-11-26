@@ -44,4 +44,21 @@ public class MemberMissionCommandServiceImpl implements MemberMissionCommandServ
 
         return memberMissionRepository.save(memberMission);
     }
+
+    @Override
+    public MemberMission completeMemberMission(MemberMissionRequestDTO.UpdateMemberMissionDTO request) {
+        Mission mission = missionRepository.findById(request.getMissionId())
+                .orElseThrow(() ->
+                        new StoreHandler(ErrorStatus.MISSION_NOT_FOUND)
+                );
+
+        Member member = memberRepository.findById(1L)
+                .orElseThrow(() ->
+                        new MemberHandler(ErrorStatus.MEMBER_NOT_FOUND)
+                );
+
+        MemberMission memberMission = memberMissionRepository.findByMissionAndMember(mission, member);
+        memberMission.changeStatus(MissionStatus.COMPLETE);
+        return memberMissionRepository.save(memberMission);
+    }
 }
