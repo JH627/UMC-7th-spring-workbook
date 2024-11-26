@@ -71,6 +71,12 @@ public enum ErrorStatus implements BaseErrorCode {
             HttpStatus.BAD_REQUEST,
             "MISSION400",
             "이미 진행중인 미션입니다."
+    ),
+
+    INVALID_PAGE_NUMBER(
+            HttpStatus.BAD_REQUEST,
+            "PAGE400",
+            "올바르지 않은 페이지 번호입니다."
     );
 
     private final HttpStatus httpStatus;
